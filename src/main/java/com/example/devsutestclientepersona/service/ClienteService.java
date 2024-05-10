@@ -27,6 +27,17 @@ public class ClienteService {
         return clienteCrudRepository.findById(id);
     }
 
+    public Optional<Cliente> getByNombre(String nombre) {
+        if (personaService.getByNombre(nombre).isPresent()) {
+            Persona persona = personaService.getByNombre(nombre).get();
+
+            return clienteCrudRepository.findByPersonaId(persona.getPersonaId());
+        }
+        else {
+            return Optional.empty();
+        }
+    }
+
     public Cliente save(Cliente cliente) {
         Persona persona = personaService.save(cliente.getPersona());
         cliente.setPersona(persona);

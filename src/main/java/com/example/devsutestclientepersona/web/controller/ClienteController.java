@@ -23,8 +23,15 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> getByClient(@PathVariable("id") long clientId) {
+    public ResponseEntity<Cliente> getByClienteId(@PathVariable("id") long clientId) {
         return clienteService.getById(clientId).map(
+                cliente -> new ResponseEntity<>(cliente, HttpStatus.OK)
+        ).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/param")
+    public ResponseEntity<Cliente> getByClienteNombre(@RequestParam("nombre") String nombre) {
+        return clienteService.getByNombre(nombre).map(
                 cliente -> new ResponseEntity<>(cliente, HttpStatus.OK)
         ).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }

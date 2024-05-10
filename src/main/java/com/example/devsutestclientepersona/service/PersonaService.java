@@ -21,6 +21,10 @@ public class PersonaService {
         return personaCrudRepository.findById(id);
     }
 
+    public Optional<Persona> getByNombre(String nombre) {
+        return personaCrudRepository.findByNombre(nombre);
+    }
+
     public Persona save(Persona persona) {
         return personaCrudRepository.save(persona);
     }
