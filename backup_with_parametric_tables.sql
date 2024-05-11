@@ -248,8 +248,8 @@ COPY public.persona (id_persona, nombre, edad, identificacion, direccion, telefo
 --
 
 COPY public.tipo_cuenta (id_tipo_cuenta, descripcion) FROM stdin;
-1	Ahorros         
-2	Corriente       
+1	Ahorros
+2	Corriente
 \.
 
 
@@ -260,8 +260,8 @@ COPY public.tipo_cuenta (id_tipo_cuenta, descripcion) FROM stdin;
 --
 
 COPY public.tipo_movimiento (id_tipo_movimiento, descripcion) FROM stdin;
-1	Retiro          
-2	Deposito        
+1	Retiro
+2	Deposito
 \.
 
 
